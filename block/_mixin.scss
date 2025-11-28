@@ -1,0 +1,46 @@
+@mixin display() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button() {
+  border: none;
+  font-family: "Open Sans";
+}
+
+@mixin hover() {
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+// @mixin bg() {
+// //   background: #224557;
+// // background: linear-gradient(322deg, rgba(34, 69, 87, 1) 0%, rgba(15, 16, 20, 1) 29%);
+// // }
+// }
+
+@mixin animate() {
+  // transition: all 1s ease-in-out;
+  &:hover {
+    animation-name: animate-items;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes animate-items {
+  0%{
+    transform: translateY(0px);
+  }50%{
+    transform: translateY(-10px);
+  }100%{
+    transform: translateY(0px);
+  }
+}

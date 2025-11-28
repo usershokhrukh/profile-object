@@ -1,0 +1,125 @@
+.profile {
+  @include display();
+  flex-direction: column;
+  padding: 30px 20px;
+  background-color: $dark;
+  gap: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 430px;
+
+  &__top {
+    @include display();
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__top-weathers {
+    @include display();
+    gap: 10px;
+  }
+
+  &__top-choose {
+    @include display();
+    @include hover();
+    height: 55px;
+    width: 55px;
+    background-color: $colorBg;
+    border-radius: 10px;
+  }
+
+  &__top-title {
+    font-family: "Open Sans";
+    color: white;
+  }
+
+  &__weather-form {
+    @include display();
+    width:100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    // background-color: red;
+  }
+
+  &__form-boxes {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  &__form-text {
+    font-family: "Open Sans";
+    color: $gray;
+    font-size: 18px;
+  }
+
+  &__inputs {
+    font-family: "Open Sans";
+    // background-color: red;
+    padding: 5px 10px 5px 5px;
+    font-size: 20px;
+    background-color: $colorCardsBg;
+    color: $colorBg;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  &__form-label {
+    @include display();
+    // background-color: red;
+    color: $gray;
+    font-family: "Open Sans";
+    font-size: 20px;  
+  }
+
+  &__form-card {
+    @include display();
+    gap: 3px;
+  }
+
+  &__form-been {
+    @include display();
+    position: relative;
+    top: 10px;
+    left: 10px;
+    gap: 5px; 
+  }
+
+  &__form-been-text {
+    font-family: "Open Sans";
+    color: $gray;
+    font-size: 18px;
+  }
+
+  &__form-box-title {
+    font-family: "Open Sans";
+    // color: rgb(232, 232, 232);
+    color: $blue;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__form-button {
+    @include button();
+    @include hover();
+    padding: 12px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: $blue;
+    color: white;
+    font-weight: 500;
+  }
+
+
+}
+
+.show {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 1s;
+}

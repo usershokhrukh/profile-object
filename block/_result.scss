@@ -1,0 +1,114 @@
+.result {
+  @include display();
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  &__top {
+    @include display();
+    width: 100%;
+    justify-content: space-between;
+    background-color: $dark;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  &__top-left {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+
+  &__top-text {
+    @include display();
+    gap: 5px; 
+    font-family: "Open Sans";
+    color: white;
+    font-weight: 500;
+  }
+
+  &__top-degree {
+    font-family: "Open Sans";
+    color: $blue;
+    font-size: 80px;
+  }
+
+  &__top-box {
+    @include display();
+    gap: 3px;
+  }
+
+  &__top-right {
+    svg {
+      position: relative;
+      top: -100px;
+    }
+
+  }
+
+  &__top-span {
+    font-size: 25px;
+    color: $blue;
+    font-family: "Open Sans";
+    line-height: 10px;
+  }
+  &__bottom {
+    @include display();
+    width: 100%;
+    background-color: $dark;
+    border-radius: 15px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__bottom-cards{
+    @include display();
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+
+  &__bottom-cards-box {
+    @include display();
+    width: 100%;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  &__bottom-cards-title{
+    font-family: "Open Sans";
+    color: white;
+  }
+
+  &__bottom-items {
+    @include display();
+    @include animate();
+    @include hover();
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 5px;
+    background-color: rgb(55, 66, 80);
+  }
+
+  &__bottom-items-box {
+    @include display();
+    gap: 3px;
+  }
+
+  &__bottom-items-title {
+    font-family: "Open Sans";
+    color: white;
+    font-size: 30px;
+  }
+
+
+}
+
+.show {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 1s;
+}
