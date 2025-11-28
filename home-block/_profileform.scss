@@ -1,0 +1,146 @@
+.main {
+  flex-grow: 1;
+  z-index: 1;
+
+  padding: 40px;
+  &__loader {
+    position: absolute;
+    bottom: 17px;
+    right: 63px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50px;
+    animation-name: loader;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    color: var(--white);
+    visibility: hidden;
+    z-index: 3;
+  }
+}
+
+.profileform {
+  @include display();
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 0px 30px 0px;
+  &__form {
+    @include display();
+    position: relative;
+    width: 100%;
+    max-width: 3000px;
+    justify-content: start;
+    gap: 13px;
+    flex-direction: column;
+    align-items: start;
+    padding: 25px 100px 65px 5px;
+    border-radius: 5px;
+    background-color: var(--colorGray);
+    border: 1px solid var(--colorUser);
+    display: none;
+  }
+
+  &__boxes {
+    @include display();
+    position: relative;
+    flex-direction: column;
+    align-items: start;
+    gap: 2px;
+  }
+
+  &__text {
+    position: relative;
+    top: 24px;
+    left: 5px;
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: $colorUserBlack;
+  }
+
+  &__textid {
+    position: relative;
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: $colorUserBlack;
+  }
+
+  &__textid-second {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  &__textidlink {
+    position: absolute;
+    bottom: 20px;
+    right: 150px;
+    color: var(--colorUser);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 30px;
+    padding: 3px 5px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 14px;
+    box-shadow: 0px 0px 20px -10px var(--colorOpacityBlack);
+
+  }
+
+  &__button {
+    @include button(rgb(28, 168, 28), white, 20px, 10px);
+    @include hoverOn();
+    border-radius: 3px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 40px;
+    width: 128px;
+  }
+
+  &__textarea {
+    max-width: 500px !important;
+    min-width: 150px;
+    min-height: 50px;
+    max-height: 200px;
+  }
+
+  &__textarea-box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 650px) {
+  .main {
+    width: 100%;
+    padding: 10px;
+  }
+  .profileform {
+    justify-content: start;
+    padding: 15px 0px;
+    // height: 100vh;
+
+    &__form {
+      width: 100%;
+    }
+
+    &__textarea {
+      width: 90%;
+      max-width: 130px !important;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    &__textidlink {
+      position: absolute;
+      bottom: 45px;
+      left: 5px;
+    }
+  }
+}

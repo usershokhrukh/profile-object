@@ -1,0 +1,27 @@
+.footer {
+  @include display();
+  background-color: var(--colorBlack);
+
+  &__box {
+    @include display();
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 30px;
+  }
+
+  &__text {
+    font-family: "Open Sans";
+    color: $colorGray
+  }
+}
+
+@media (max-width: 650px) {
+  .footer {
+    &__box {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}

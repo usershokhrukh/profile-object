@@ -1,0 +1,49 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.contain {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+li {
+  list-style: none;
+}
+
+.body {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+}
+
+
+// $colorBlack: rgb(28, 27, 27);
+$colorGray: rgba(236, 236, 236, 1);
+$colorOpacityBlack: rgb(127, 127, 127);
+$white: #fff;
+
+
+$colorUser: #0192ef;
+$colorUserOpacity: rgb(214, 227, 247);
+$colorUserGreen: #1a5641;
+$colorUserGreenOpacity: rgb(215, 255, 215);
+$colorUserYellowOpacity: rgb(255, 186, 90);
+$colorUserYellow: #FFD600;
+$colorUserPurple: rgb(34, 14, 34);
+$colorUserPurpleOpacity: rgb(239, 187, 239);
+$colorUserBlack: #131A22;
+$colorUserBlackOpacity: #67708f;

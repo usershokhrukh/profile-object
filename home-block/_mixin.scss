@@ -1,0 +1,41 @@
+@mixin display() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin grid() {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hoverOn(){
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+@mixin hover(){
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+@mixin button($bg, $color, $x, $y) {
+  background-color: $bg;
+  color: $color;
+  padding: $y $x;
+  border: none;
+  font-family: 'Open Sans';
+}

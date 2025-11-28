@@ -1,0 +1,332 @@
+.navbar {
+  @include display();
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 40px;
+
+  &__title {
+    font-family: "Open Sans";
+    font-size: 20px;
+    color: var(--colorBlack);
+  }
+
+  &__header {
+    @include display();
+    flex-direction: column;
+    align-items: end;
+    justify-content: start;
+  }
+
+  &__right-box {
+    @include display();
+    position: relative;
+    width: 60%;
+    justify-content: end;
+    gap: 10px;
+    max-width: 400px;
+  }
+
+  &__day-box {
+    @include display();
+    position: relative;
+
+    &:active svg {
+      animation-name: sit;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &__day-box-second {
+    position: absolute;
+    top: -35px;
+  }
+
+  &__night {
+    color: var(--white);
+    position: relative;
+    left: 10px;
+    visibility: hidden;
+  }
+
+  &__day {
+    position: relative;
+    color: var(--colorBlack);
+  }
+
+  &__night,
+  &__day {
+    position: relative;
+    right: 8px;
+  }
+
+  &__profile {
+    @include display();
+    justify-content: center;
+    @include hoverOn();
+    width: 30px;
+    height: 30px;
+    background-color: var(--colorUserOpacity);
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid var(--colorUser);
+
+    & svg {
+      color: var(--colorBlack);
+    }
+  }
+
+  &__burger {
+    @include display();
+    @include hoverOn();
+    flex-direction: column;
+    gap: 3px;
+    display: none;
+  }
+
+  &__burger-items {
+    width: 22px;
+    height: 2px;
+    background-color: var(--colorBlack);
+    border-radius: 2px;
+  }
+
+  &__list {
+    @include display();
+    gap: 20px;
+  }
+
+  &__link {
+    @include hoverOn();
+    font-family: "Open Sans";
+    color: var(--colorBlack);
+  }
+
+  &__box-phone {
+    position: relative;
+    right: 0px;
+    width: 60%;
+    max-width: 250px;
+    height: 80vh;
+    display: none;
+    background-color: var(--colorGray);
+    border-radius: 3px;
+    visibility: hidden;
+    border: 1px solid var(--colorUser);
+    max-height: 200px;
+  }
+
+  &__box-phone-main {
+    position: relative;
+    top: 50px;
+  }
+
+  &__close {
+    color: var(--colorBlack);
+    display: none;
+  }
+
+  &__profile-choose {
+    @include display();
+    position: absolute !important;
+    top: 60px;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    right: 0px;
+    width: 100%;
+    max-width: 250px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--colorGray);
+    border: 1px solid var(--colorUser);
+    border-radius: 5px;
+    z-index: 3;
+    display: none;
+    // visibility: hidden;
+  }
+
+  &__profile-top {
+    @include display();
+    width: 100%;
+    align-items: start;
+  }
+
+  &__profile-bottom {
+    @include display();
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+
+    & textarea {
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 80px;
+      max-height: 400px;
+      outline: none;
+      padding: 2px 5px;
+      font-family: "Open Sans";
+      font-size: 14px;
+      border: none;
+    }
+  }
+
+  &__profile-button {
+    @include hoverOn();
+    @include button(rgb(28, 168, 28), white, 15px, 5px);
+    border-radius: 3px;
+  }
+
+  &__profile-choose-wrapper {
+    @include display();
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  &__profile-choose-color {
+    @include display();
+    width: 100%;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__profile-color-box {
+    @include display();
+    width: 100%;
+    justify-content: start;
+    gap: 4px;
+  }
+
+  &__profile-colors {
+    @include hover();
+    width: 20px;
+    height: 20px;
+  }
+
+  &__profile-colors:nth-child(1) {
+    background-color: var(--colorUser);
+  }
+  &__profile-colors:nth-child(2) {
+    background-color: var(--colorUserGreen);
+  }
+  &__profile-colors:nth-child(3) {
+    background-color: var(--colorUserYellow);
+  }
+  &__profile-colors:nth-child(4) {
+    background-color: var(--colorUserPurple);
+  }
+  &__profile-colors:nth-child(5) {
+    background-color: var(--colorUserBlack);
+  }
+
+  &__profile-secondary-colors:nth-child(1) {
+    background-color: var(--colorUserOpacity);
+  }
+  &__profile-secondary-colors:nth-child(2) {
+    background-color: var(--colorUserGreenOpacity);
+  }
+  &__profile-secondary-colors:nth-child(3) {
+    background-color: var(--colorUserYellowOpacity);
+  }
+  &__profile-secondary-colors:nth-child(4) {
+    background-color: var(--colorUserPurpleOpacity);
+  }
+  &__profile-secondary-colors:nth-child(5) {
+    background-color: var(--colorUserBlackOpacity);
+  }
+
+  &__profile-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--colorBlack);
+  }
+
+  &__profile-box {
+    @include display();
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__profile-user {
+    @include display();
+    width: 70px;
+    height: 70px;
+  }
+
+  &__profile-box-top {
+    @include display();
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    font-family: "Open Sans";
+    font-size: 15px;
+    border-bottom: 1px solid $colorUserBlack;
+    padding: 0px 0px 10px 0px;
+  }
+
+  &__text-info {
+    @include display();
+    align-items: start;
+    width: 100%;
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: $colorOpacityBlack;
+  }
+
+  &__profile-sub {
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: $colorUserBlack;
+    line-height: normal;
+    height: auto;
+
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 15px  10px;
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__right-box {
+      display: none;
+    }
+
+    &__burger {
+      display: flex;
+    }
+
+    &__list {
+      flex-direction: column;
+    }
+    &__profile {
+      position: absolute;
+      top: -45px;
+      right: 5px;
+    }
+
+    &__profile-second {
+      position: static !important;
+    }
+
+    &__profile-user {
+      position: static !important;
+    }
+
+    &__profile-choose {
+      width: 90%;
+      max-height: none;
+    }
+  }
+}
