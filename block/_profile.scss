@@ -7,6 +7,7 @@
   border-radius: 15px;
   width: 100%;
   max-width: 430px;
+  // display: none;
 
   &__top {
     @include display();
@@ -26,6 +27,7 @@
     width: 55px;
     background-color: $colorBg;
     border-radius: 10px;
+    opacity: 0.6;
   }
 
   &__top-title {
@@ -65,7 +67,7 @@
     color: $colorBg;
     border-radius: 5px;
     outline: none;
-    border: none;
+    border: 1px solid $colorCardsBg;
   }
 
   &__form-label {
@@ -118,8 +120,71 @@
 
 }
 
+.choose {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+ .display {
+  display: flex;
+}
+
 .show {
   animation-name: show;
   animation-duration: 1s;
-  animation-delay: 1s;
+}
+
+.show-form {
+  animation-name: show;
+  animation-duration: 1s;
+}
+
+.exit {
+  animation-name: exit;
+  animation-duration: 1s;
+}
+
+.warning {
+  animation-name: warning;
+  animation-duration: 0.5s;
+  color: red;
+}
+
+.input-warning {
+  border: 1px solid red;
+}
+
+@keyframes warning {
+  0%{
+    transform: translateX(0px);
+  }25%{
+    transform: translateX(10px);
+  }50%{
+    transform: translateX(0px);
+  }75%{
+    transform: translateX(10px);
+  }100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes show {
+  0%{
+    visibility: hidden;
+    transform: translateY(-30px);  
+  }100%{
+    visibility: visible;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes exit {
+  0%{
+    visibility: hidden;
+    transform: translateY(0px);
+  }100%{
+    visibility: visible;
+    transform: translateY(-30px);
+  }
 }

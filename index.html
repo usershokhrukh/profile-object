@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js@1/src/toastify.min.css">
 </head>
 <body>
   <div class="wrapper">
-    <form class="form exit">
+    <form class="form">
       <h2 class="form__title">Login in Visual <span class="form__title-span">Weather</span></h2>
       <div class="form__boxes">
         <label for="email" class="form__text">Email address</label>
@@ -21,15 +22,16 @@
         <input class="form__inputs" id="username" name="username" type="text">
       </div>
       <div class="form__boxes">
+
         <label for="passwd" class="form__text">Password</label>
         <input class="form__inputs" id="passwd" name="password" type="password">
       </div>
       <button class="form__button" type="submit">Enter</button>
     </form>
     <div class="wathers"></div>
-    <section class="profile show">
+    <section class="profile">
       <div class="profile__top">
-        <h2 class="profile__top-title">Choose <span class="form__title-span">Behavior</span></h2>
+        <h2 class="profile__top-title"><span class="profile__weather-text">Choose</span> <span class="form__title-span">Behavior</span></h2>
         <div class="profile__top-weathers">
           <div class="profile__top-choose">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><g fill="#ffcc33" stroke="#ffcc33" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="#ffcc33" fill-opacity="0" stroke-dasharray="36" stroke-dashoffset="36" d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="36;0"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M12 19v1M19 12h1M12 5v-1M5 12h-1" opacity="0"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.6s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5" opacity="0"><animate fill="freeze" attributeName="d" begin="0.8s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.8s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
@@ -183,7 +185,7 @@
             Speed of air
           </p>
           <div class="profile__form-card">
-            <input class="profile__inputs" id="air" name="profile-air" type="number">
+            <input value="0" class="profile__inputs" id="air" name="profile-air" type="number">
             <label class="profile__form-label" for="air">m/s</label>
           </div>
           
@@ -202,17 +204,16 @@
         <button class="profile__form-button" type="submit">Add</button>
       </form>
     </section>  
-    <section class="result show">
+    <section class="result">
       <div class="result__top">
           <div class="result__top-left">
-            <p class="result__top-text">Date</p>
+            <h2 class="result__top-text">2025-11-29</h2>
             <div class="result__top-box">
               <h2 class="result__top-degree">45</h2>
               <svg  width="30" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="rgb(136, 136, 136)" d="M4 9.5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0M6.5 5a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m9.602 4.214C14.844 10.68 14 12.93 14 16s.845 5.32 2.102 6.786C17.352 24.243 19.07 25 21 25s3.649-.757 4.898-2.214A7.8 7.8 0 0 0 27.16 20.7c.171-.41.56-.699 1.004-.699c.676 0 1.17.644.922 1.273a9.8 9.8 0 0 1-1.67 2.816C25.77 26.007 23.488 27 21 27s-4.77-.993-6.416-2.911C12.946 22.179 12 19.429 12 16s.946-6.18 2.584-8.089C16.23 5.993 18.512 5 21 5s4.77.993 6.416 2.911a9.8 9.8 0 0 1 1.67 2.816c.247.63-.246 1.273-.922 1.273c-.445 0-.833-.288-1.004-.699a7.8 7.8 0 0 0-1.262-2.087C24.648 7.757 22.93 7 21 7s-3.649.757-4.898 2.214"/></svg>
             </div>
             <p class="result__top-text"> <span class="result__top-span">30</span> m/s</p>
             <div class="result__top-box">
-              <!-- <p class="result__top-text">from</p> -->
               <span class="result__top-span">12:34</span>
               <p class="result__top-text">-</p>
               <span class="result__top-span">15:23</span>
@@ -224,7 +225,7 @@
       </div>
       <div class="result__bottom">
         <div class="result__bottom-cards">
-          <h2 class="result__bottom-cards-title">Date</h2>
+          <h2 class="result__bottom-cards-title">2025-11-29</h2>
           <div class="result__bottom-cards-box">
             <div class="result__bottom-items">
               <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><g fill="#ffcc33" stroke="#ffcc33" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="#ffcc33" fill-opacity="0" stroke-dasharray="36" stroke-dashoffset="36" d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="36;0"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M12 19v1M19 12h1M12 5v-1M5 12h-1" opacity="0"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.6s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5" opacity="0"><animate fill="freeze" attributeName="d" begin="0.8s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.8s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
@@ -232,13 +233,14 @@
                 <h2 class="result__bottom-items-title">45</h2>
               <svg width="30" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="rgb(136, 136, 136)" d="M4 9.5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0M6.5 5a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m9.602 4.214C14.844 10.68 14 12.93 14 16s.845 5.32 2.102 6.786C17.352 24.243 19.07 25 21 25s3.649-.757 4.898-2.214A7.8 7.8 0 0 0 27.16 20.7c.171-.41.56-.699 1.004-.699c.676 0 1.17.644.922 1.273a9.8 9.8 0 0 1-1.67 2.816C25.77 26.007 23.488 27 21 27s-4.77-.993-6.416-2.911C12.946 22.179 12 19.429 12 16s.946-6.18 2.584-8.089C16.23 5.993 18.512 5 21 5s4.77.993 6.416 2.911a9.8 9.8 0 0 1 1.67 2.816c.247.63-.246 1.273-.922 1.273c-.445 0-.833-.288-1.004-.699a7.8 7.8 0 0 0-1.262-2.087C24.648 7.757 22.93 7 21 7s-3.649.757-4.898 2.214"/></svg>
               </div>
-              <p class="result__top-text"><span class="result__top-span"></span>m/s</p>
+              <p class="result__top-text"><span class="result__top-span">30</span>m/s</p>
             </div>
           </div>
         </div>
       </div>
     </section>
   </div>
-  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js@1/src/toastify.min.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
