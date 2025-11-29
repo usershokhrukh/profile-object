@@ -20,6 +20,7 @@ const elSecondTime = elWeatherForm["profile-been-second"];
 const elProfileInputs = document.querySelectorAll(".profile__inputs");
 const elWeatherChoose = document.querySelectorAll(".profile__top-choose");
 const elWeatherText = document.querySelector(".profile__weather-text");
+const elUserprofileText = document.querySelectorAll(".userprofile__text");
 let chooseWeather = false;
 let dateArray = [];
 let userDateProfile = {
@@ -386,6 +387,11 @@ elForm.addEventListener("submit", (e) => {
     userProfile.email = elEmail.value.trim();
     userProfile.password = elPassword.value.trim();
     userProfile.username = elUserName.value.trim();
+    elUserprofileText[0].textContent = userProfile.username;
+    elUserprofileText[1].textContent = userProfile.username ;
+    elUserprofileText[2].textContent = userProfile.email;
+    elUserprofileText[3].textContent = userProfile.password;
+
     elForm.classList.remove("show-form", "display");
     elForm.classList.add("exit");
     elProfile.classList.add("display", "show");
