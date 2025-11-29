@@ -109,7 +109,6 @@ elWeatherForm.addEventListener("submit", (e) => {
         elResultTopSpan[1].textContent = timeFirst;
         elResultTopSpan[2].textContent = timeSecond;
         elResultTopRight.innerHTML = svg;
-        console.log(weatherArray[index]);
       });
     }
 
