@@ -2,7 +2,8 @@
   @include display();
   flex-direction: column;
   padding: 30px 20px;
-  background-color: $dark;
+  background-color: rgba(28, 36, 42, 0.7);
+    backdrop-filter: blur(10px);
   gap: 30px;
   border-radius: 15px;
   width: 100%;
