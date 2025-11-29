@@ -20,7 +20,7 @@
     gap: 20px;
   }
 
-  &__top-text {
+  &__top-text, &__items-top-text {
     @include display();
     gap: 5px; 
     font-family: "Open Sans";
@@ -41,6 +41,8 @@
 
   &__top-right {
     svg {
+      width: 200px !important;
+      height: 200px !important;
       position: relative;
       top: -100px;
     }

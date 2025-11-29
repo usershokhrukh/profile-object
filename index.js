@@ -37,7 +37,9 @@ let weather = {
   svg: "",
 };
 
-elProfile.addEventListener("submit", (e) => {
+let inputsIndex = [];
+
+elWeatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let inputsCheck = true;
   for (var i = 0; i < 5; i++) {
@@ -47,7 +49,7 @@ elProfile.addEventListener("submit", (e) => {
     }
   }
 
-  if (!weather.weather) {
+  if (!chooseWeather) {
     inputsCheck = false;
     if (!toastyAnimate) {
       toastyAnimate = false;
@@ -57,20 +59,14 @@ elProfile.addEventListener("submit", (e) => {
       toastyAnimate = true;
     }
 
-    for (var i = 0; i < 5; i++) {
-      elWeatherChoose[i].classList.add("input-warning");
+    if (!chooseWeather) {
+      for (var i = 0; i < 5; i++) {
+        elWeatherChoose[i].classList.add("input-warning");
+      }
     }
   }
 
   if (inputsCheck) {
-    const elResultBottom = document.querySelector(".result__bottom");
-    const elResultCardsBox = document.querySelectorAll(
-      ".result__bottom-cards-box"
-    );
-    const elResultTopText = document.querySelector(".result__top-text");
-
-    let dateIndex = "";
-
     weather.date = elDate.value.trim();
     weather.degree = elDegree.value.trim();
     weather.wind = elAir.value.trim();
@@ -79,40 +75,16 @@ elProfile.addEventListener("submit", (e) => {
     weatherArray.push({...weather});
 
     userDateProfile.date = elDate.value.trim();
-    for (var i = 0; i < dateArray.length; i++) {
-      if (dateArray[i] == userDateProfile.date) {
-        dateIndex = i;
-        break;
-      }
-    }
 
     if (!dateArray.includes(userDateProfile.date)) {
       dateArray.push(userDateProfile.date);
     }
-
-    if (dateIndex === "") {
-      const elResultBottom = document.querySelector(".result__bottom");
-      elResultBottom.innerHTML += `
-        <div class="result__bottom-cards">
-          <h2 class="result__bottom-cards-title">${weather.date}</h2>
-          <div class="result__bottom-cards-box">
-            <div class="result__bottom-items">
-              ${weather.svg}
-              <div class="result__bottom-items-box">
-                <h2 class="result__bottom-items-title">${weather.degree}</h2>
-              <svg width="30" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="rgb(136, 136, 136)" d="M4 9.5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0M6.5 5a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m9.602 4.214C14.844 10.68 14 12.93 14 16s.845 5.32 2.102 6.786C17.352 24.243 19.07 25 21 25s3.649-.757 4.898-2.214A7.8 7.8 0 0 0 27.16 20.7c.171-.41.56-.699 1.004-.699c.676 0 1.17.644.922 1.273a9.8 9.8 0 0 1-1.67 2.816C25.77 26.007 23.488 27 21 27s-4.77-.993-6.416-2.911C12.946 22.179 12 19.429 12 16s.946-6.18 2.584-8.089C16.23 5.993 18.512 5 21 5s4.77.993 6.416 2.911a9.8 9.8 0 0 1 1.67 2.816c.247.63-.246 1.273-.922 1.273c-.445 0-.833-.288-1.004-.699a7.8 7.8 0 0 0-1.262-2.087C24.648 7.757 22.93 7 21 7s-3.649.757-4.898 2.214"/></svg>
-              </div>
-              <p class="result__top-text"><span class="result__top-span">${weather.wind}</span>m/s</p>
-            </div>
-          </div>
-        </div>
-      `;
-    } else {
-      const elResultCardsBox = document.querySelectorAll(
-        ".result__bottom-cards-box"
-      );
-      elResultCardsBox[dateIndex + 1].innerHTML += `
+    const elResultCardsBox = document.querySelector(
+      ".result__bottom-cards-box"
+    );
+    elResultCardsBox.innerHTML += `
         <div class="result__bottom-items">
+              <p class="result__items-top-text">${weather.date}</p>
               ${weather.svg}
               <div class="result__bottom-items-box">
                 <h2 class="result__bottom-items-title">${weather.degree}</h2>
@@ -121,7 +93,38 @@ elProfile.addEventListener("submit", (e) => {
               <p class="result__top-text"><span class="result__top-span">${weather.wind}</span>m/s</p>
             </div>
       `;
+
+    function resultItems(index) {
+      const elResultItems = document.querySelectorAll(".result__bottom-items");
+      elResultItems[index + 1].addEventListener("click", () => {
+        const elResultTopText = document.querySelector(".result__top-text");
+        const elResultTopDegree = document.querySelector(".result__top-degree");
+        const elResultTopSpan = document.querySelectorAll(".result__top-span");
+        const elResultTopRight = document.querySelector(".result__top-right");
+        const {date, degree, wind, timeFirst, timeSecond, svg} =
+          weatherArray[index];
+        elResultTopText.textContent = date;
+        elResultTopDegree.textContent = degree;
+        elResultTopSpan[0].textContent = wind;
+        elResultTopSpan[1].textContent = timeFirst;
+        elResultTopSpan[2].textContent = timeSecond;
+        elResultTopRight.innerHTML = svg;
+        console.log(weatherArray[index]);
+      });
     }
+
+    for (var i = 0; i < weatherArray.length; i++) {
+      resultItems(i);
+    }
+    elWeatherForm.reset();
+    if (!toastyAnimate) {
+      toastyAnimate = false;
+    }
+    for (var i = 0; i < 5; i++) {
+      elWeatherChoose[i].classList.remove("input-warning");
+      elWeatherChoose[i].classList.remove("choose");
+    }
+    chooseWeather = false;
   }
 });
 

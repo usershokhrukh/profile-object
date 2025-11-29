@@ -454,7 +454,7 @@ body {
   align-items: start;
   gap: 20px;
 }
-.result__top-text {
+.result__top-text, .result__items-top-text {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -475,6 +475,8 @@ body {
   gap: 3px;
 }
 .result__top-right svg {
+  width: 200px !important;
+  height: 200px !important;
   position: relative;
   top: -100px;
 }
