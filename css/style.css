@@ -123,6 +123,12 @@ body {
   font-size: 12px;
   color: gray;
 }
+.userprofile__box:hover {
+  opacity: 0.9;
+}
+.userprofile__box:active {
+  opacity: 1;
+}
 .userprofile .showuser {
   animation-name: showuserprofile;
   animation-duration: 0.5s;

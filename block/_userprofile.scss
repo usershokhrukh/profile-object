@@ -35,6 +35,16 @@
     color: gray;
   }
 
+  &__box {
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+  }
+
   .showuser {
     animation-name: showuserprofile;
     animation-duration: 0.5s;
