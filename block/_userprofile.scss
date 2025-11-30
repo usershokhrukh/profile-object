@@ -6,13 +6,11 @@
   gap: 10px;
   // background-color: red;
 
-  &__text {
+  &__text, &__label {
+    position: relative;
+    left: 10px;
     font-family: "Open Sans";
     color: white;
-  }
-
-  &__text-second{
-    text-transform: capitalize
   }
 
   &__show {
@@ -27,8 +25,29 @@
     background-color: rgba(28, 36, 42, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 5px;
-    padding: 10px;
-  
+    padding: 10px 20px 10px 10px;
+    visibility: hidden;
+  }
 
+  &__label {
+    position: static;
+    font-size: 12px;
+    color: gray;
+  }
+
+  .showuser {
+    animation-name: showuserprofile;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes showuserprofile {
+  0%{
+    visibility: visible;
+    transform: translateY(-10px);
+  }100%{
+    visibility: visible;
+    transform: translateY(0px);
   }
 }

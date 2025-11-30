@@ -21,6 +21,13 @@ const elProfileInputs = document.querySelectorAll(".profile__inputs");
 const elWeatherChoose = document.querySelectorAll(".profile__top-choose");
 const elWeatherText = document.querySelector(".profile__weather-text");
 const elUserprofileText = document.querySelectorAll(".userprofile__text");
+const elUserprofileBox = document.querySelector(".userprofile__box");
+const elUserprofileShow = document.querySelector(".userprofile__show");
+elUserprofileBox.addEventListener("click", ()=> {
+    elUserprofileShow.classList.toggle("showuser");
+});
+
+
 let chooseWeather = false;
 let dateArray = [];
 let userDateProfile = {
