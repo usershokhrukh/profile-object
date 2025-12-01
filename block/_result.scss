@@ -45,7 +45,8 @@
 
   &__top-right {
     svg {
-      width: 200px !important;
+      width: 100%;
+      max-width: 200px !important;
       height: 200px !important;
       position: relative;
       top: -100px;

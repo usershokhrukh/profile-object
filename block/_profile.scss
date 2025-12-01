@@ -16,9 +16,15 @@
     gap: 20px;
   }
 
+  &__form-wrap {
+    flex-wrap: wrap;
+    justify-content: start !important
+  }
+
   &__top-weathers {
     @include display();
     gap: 10px;
+    flex-wrap: wrap
   }
 
   &__top-choose {
@@ -34,6 +40,7 @@
   &__top-title {
     font-family: "Open Sans";
     color: white;
+    text-align: center
   }
 
   &__weather-form {
@@ -47,8 +54,10 @@
 
   &__form-boxes {
     @include display();
+    width: 100%;
     flex-direction: column;
     align-items: start;
+    justify-content: start !important;
     gap: 5px;
     flex-wrap: wrap;
   }
@@ -62,6 +71,9 @@
   &__inputs {
     font-family: "Open Sans";
     // background-color: red;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 330px;
     padding: 5px 10px 5px 5px;
     font-size: 20px;
     background-color: $colorCardsBg;
@@ -82,6 +94,9 @@
   &__form-card {
     @include display();
     gap: 3px;
+    width: 100% !important;
+    // background-color: red;
+    justify-content: start
   }
 
   &__form-been {

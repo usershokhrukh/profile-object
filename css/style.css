@@ -123,6 +123,9 @@ body {
   font-size: 12px;
   color: gray;
 }
+.userprofile__box {
+  z-index: 2;
+}
 .userprofile__box:hover {
   opacity: 0.9;
 }
@@ -356,11 +359,16 @@ body {
   flex-direction: column;
   gap: 20px;
 }
+.profile__form-wrap {
+  flex-wrap: wrap;
+  justify-content: start !important;
+}
 .profile__top-weathers {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .profile__top-choose {
   display: flex;
@@ -381,6 +389,7 @@ body {
 .profile__top-title {
   font-family: "Open Sans";
   color: white;
+  text-align: center;
 }
 .profile__weather-form {
   display: flex;
@@ -395,8 +404,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   flex-direction: column;
   align-items: start;
+  justify-content: start !important;
   gap: 5px;
   flex-wrap: wrap;
 }
@@ -407,6 +418,9 @@ body {
 }
 .profile__inputs {
   font-family: "Open Sans";
+  flex-grow: 1;
+  width: 100%;
+  max-width: 330px;
   padding: 5px 10px 5px 5px;
   font-size: 20px;
   background-color: rgba(215, 215, 215, 0.8039215686);
@@ -428,6 +442,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3px;
+  width: 100% !important;
+  justify-content: start;
 }
 .profile__form-been {
   display: flex;
@@ -588,7 +604,8 @@ body {
   gap: 3px;
 }
 .result__top-right svg {
-  width: 200px !important;
+  width: 100%;
+  max-width: 200px !important;
   height: 200px !important;
   position: relative;
   top: -100px;
