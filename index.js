@@ -23,10 +23,9 @@ const elWeatherText = document.querySelector(".profile__weather-text");
 const elUserprofileText = document.querySelectorAll(".userprofile__text");
 const elUserprofileBox = document.querySelector(".userprofile__box");
 const elUserprofileShow = document.querySelector(".userprofile__show");
-elUserprofileBox.addEventListener("click", ()=> {
-    elUserprofileShow.classList.toggle("showuser");
+elUserprofileBox.addEventListener("click", () => {
+  elUserprofileShow.classList.toggle("showuser");
 });
-
 
 let chooseWeather = false;
 let dateArray = [];
@@ -88,7 +87,7 @@ elWeatherForm.addEventListener("submit", (e) => {
       dateArray.push(userDateProfile.date);
     }
     const elResultCardsBox = document.querySelector(
-      ".result__bottom-cards-box"
+      ".result__bottom-cards-box",
     );
     elResultCardsBox.innerHTML += `
         <div class="result__bottom-items">
@@ -109,6 +108,8 @@ elWeatherForm.addEventListener("submit", (e) => {
         const elResultTopDegree = document.querySelector(".result__top-degree");
         const elResultTopSpan = document.querySelectorAll(".result__top-span");
         const elResultTopRight = document.querySelector(".result__top-right");
+        const elResultTitle = document.querySelector(".result__title");
+        elResultTitle.textContent = ""
         const {date, degree, wind, timeFirst, timeSecond, svg} =
           weatherArray[index];
         elResultTopText.textContent = date;
@@ -395,7 +396,7 @@ elForm.addEventListener("submit", (e) => {
     userProfile.password = elPassword.value.trim();
     userProfile.username = elUserName.value.trim();
     elUserprofileText[0].textContent = userProfile.username;
-    elUserprofileText[1].textContent = userProfile.username ;
+    elUserprofileText[1].textContent = userProfile.username;
     elUserprofileText[2].textContent = userProfile.email;
     elUserprofileText[3].textContent = userProfile.password;
 
@@ -467,3 +468,128 @@ elPassword.addEventListener("input", (e) => {
     elPassword.classList.add("input-warning");
   }
 });
+
+const elSearch = document.querySelector(".search");
+api =
+  "https://api.openweathermap.org/data/2.5/weather?q=tashkent&appid=c67e3943b1537eb384b2ac2193719538&units=metric";
+
+async function getRequest(url) {
+  const request = await axios.get(url);
+  return request;
+}
+
+try {
+  function getData(url) {
+    const getDataRequest = getRequest(url)
+      .then((response) => workData(response))
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }
+
+  function workData(data) {
+    const {weather, main, wind, name} = data.data;
+    // console.log(weather[0].main); // forecast
+    // console.log(main.temp); // temperature C
+    // console.log(wind.speed); // wind speed
+    // console.log(name); // name
+    let elResultTopText = document.querySelector(".result__top-text");
+    const elResultTopDegree = document.querySelector(".result__top-degree");
+    let elResultTopSpan = document.querySelectorAll(".result__top-span");
+    const elResultTopRight = document.querySelector(".result__top-right");
+    const elResultTitle = document.querySelector(".result__title");
+    function getDate() {
+      const date = new Date();
+      elResultTopText = document.querySelector(".result__top-text");
+      elResultTopSpan = document.querySelectorAll(".result__top-span")
+      elResultTopSpan[1].textContent =` ${date.getHours()}`;
+      elResultTopSpan[2].textContent = `${date.getMinutes()}`;
+      elResultTopText.textContent = `${date.getFullYear()}-`;
+      elResultTopText.textContent += `${date.getUTCMonth()}-`;
+      elResultTopText.textContent += `${date.getDate()}`;
+    }
+    getDate();
+    elResultTopDegree.textContent = `${main.temp}`;
+    elResultTopSpan[0].textContent = `${wind.speed}`;
+    elResultTitle.textContent = `${name}`
+    switch(weather[0].main) {
+      case "Clear" :
+        elResultTopRight.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><g fill="#ffcc33" stroke="#ffcc33" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="#ffcc33" fill-opacity="0" stroke-dasharray="36" stroke-dashoffset="36" d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="36;0"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M12 19v1M19 12h1M12 5v-1M5 12h-1" opacity="0"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.6s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5" opacity="0"><animate fill="freeze" attributeName="d" begin="0.8s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.8s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
+        `;
+        break;
+      case "Rain":
+        elResultTopRight.innerHTML = `
+          <svg width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+            <defs>
+              <linearGradient id="a" x1="22.56" y1="21.96" x2="39.2" y2="50.8" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f3f7fe"/>
+                <stop offset="0.45" stop-color="#f3f7fe"/>
+                <stop offset="1" stop-color="#deeafb"/>
+              </linearGradient>
+              <linearGradient id="b" x1="23.31" y1="44.3" x2="24.69" y2="46.7" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4286ee"/>
+                <stop offset="0.45" stop-color="#4286ee"/>
+                <stop offset="1" stop-color="#0950bc"/>
+              </linearGradient>
+              <linearGradient id="c" x1="30.31" y1="44.3" x2="31.69" y2="46.7" xlink:href="#b"/>
+              <linearGradient id="d" x1="37.31" y1="44.3" x2="38.69" y2="46.7" xlink:href="#b"/>
+            </defs>
+            <path d="M46.5,31.5l-.32,0a10.49,10.49,0,0,0-19.11-8,7,7,0,0,0-10.57,6,7.21,7.21,0,0,0,.1,1.14A7.5,7.5,0,0,0,18,45.5a4.19,4.19,0,0,0,.5,0v0h28a7,7,0,0,0,0-14Z" stroke="#e6effc" stroke-miterlimit="10" stroke-width="0.5" fill="url(#a)"/>
+            <line x1="24.08" y1="45.01" x2="23.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#b)">
+              <animateTransform attributeName="transform" type="translate" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="31.08" y1="45.01" x2="30.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#c)">
+              <animateTransform attributeName="transform" type="translate" begin="-0.5s" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" begin="-0.5s" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="38.08" y1="45.01" x2="37.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#d)">
+              <animateTransform attributeName="transform" type="translate" begin="-1s" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" begin="-1s" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+            </line>
+          </svg>
+        `;
+        break;
+      case "Mist" :
+        elResultTopRight.innerHTML = `
+          <svg width="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <defs>
+              <linearGradient id="a" x1="40.76" y1="23" x2="50.83" y2="40.46" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#9ca3af"/>
+                <stop offset="0.45" stop-color="#9ca3af"/>
+                <stop offset="1" stop-color="#6b7280"/>
+              </linearGradient>
+              <linearGradient id="b" x1="22.56" y1="21.96" x2="39.2" y2="50.8" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f3f7fe"/>
+                <stop offset="0.45" stop-color="#f3f7fe"/>
+                <stop offset="1" stop-color="#deeafb"/>
+              </linearGradient>
+            </defs>
+            <path d="M34.23,33.45a4.05,4.05,0,0,0,4.05,4H54.79a4.34,4.34,0,0,0,.81-8.61,3.52,3.52,0,0,0,.06-.66,4.06,4.06,0,0,0-6.13-3.48,6.08,6.08,0,0,0-11.25,3.19,6.34,6.34,0,0,0,.18,1.46h-.18A4.05,4.05,0,0,0,34.23,33.45Z" stroke="#848b98" stroke-miterlimit="10" stroke-width="0.5" fill="url(#a)">
+              <animateTransform attributeName="transform" type="translate" values="-2.1 0; 2.1 0; -2.1 0" dur="7s" repeatCount="indefinite"/>
+            </path>
+            <path d="M46.5,31.5l-.32,0a10.49,10.49,0,0,0-19.11-8,7,7,0,0,0-10.57,6,7.21,7.21,0,0,0,.1,1.14A7.5,7.5,0,0,0,18,45.5a4.19,4.19,0,0,0,.5,0v0h28a7,7,0,0,0,0-14Z" stroke="#e6effc" stroke-miterlimit="10" stroke-width="0.5" fill="url(#b)">
+              <animateTransform attributeName="transform" type="translate" values="-3 0; 3 0; -3 0" dur="7s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+        `;
+        break;
+      default:
+        elResultTopRight.innerHTML = `<h2 style="color: white; font-family: "Open Sans";">-</h2>`
+    }
+  }
+
+  const elSearch = document.querySelector(".search");
+  elSearch.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const searchInput = elSearch["search"].value.trim();
+    if(searchInput) {
+      getData(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=c67e3943b1537eb384b2ac2193719538&units=metric`)
+    }
+    elSearch.reset();
+  })
+  getData(api);
+} catch (error) {
+  throw new Error(error);
+}
