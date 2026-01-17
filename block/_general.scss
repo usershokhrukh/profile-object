@@ -19,6 +19,10 @@ body {
  .display {
   display: flex;
 }
+.wrapper {
+  position: relative;
+  top: -40px;
+}
 
 .show {
   animation-name: show;

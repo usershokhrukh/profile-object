@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js@1/src/toastify.min.css">
 </head>
 <body>
+  <form action="" class="search">
+    <input class="search__input" name="search" type="search" placeholder="Search cities">
+  </form>
   <div class="weathers">
       <div class="weathers__item">
         <svg width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
@@ -74,8 +77,7 @@
         </svg>
       </div>
   </div>
-  <div class="wrapper">
-    <div class="userprofile">
+  <div class="userprofile">
       <p class="userprofile__text"></p>
       <div class="userprofile__box">
         <svg width="34" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM6.02332 15.4163C7.49083 17.6069 9.69511 19 12.1597 19C14.6243 19 16.8286 17.6069 18.2961 15.4163C16.6885 13.9172 14.5312 13 12.1597 13C9.78821 13 7.63095 13.9172 6.02332 15.4163ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z"></path></svg>
@@ -89,6 +91,7 @@
         <p class="userprofile__text">...</p>
       </div>
     </div>
+  <div class="wrapper">
     <form class="form">
       <h2 class="form__title">Login in Visual <span class="form__title-span">Weather</span></h2>
       <div class="form__boxes">
@@ -299,6 +302,7 @@
           <div class="result__top-right">
             <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><g fill="#ffcc33" stroke="#ffcc33" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path fill="#ffcc33" fill-opacity="0" stroke-dasharray="36" stroke-dashoffset="36" d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="36;0"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M12 19v1M19 12h1M12 5v-1M5 12h-1" opacity="0"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.6s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="2" stroke-dashoffset="2" d="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5" opacity="0"><animate fill="freeze" attributeName="d" begin="0.8s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="2;0"/><set fill="freeze" attributeName="opacity" begin="0.8s" to="1"/><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
           </div>
+          <h2 class="result__title">Tashkent</h2>
       </div>
       <div class="result__bottom">
         <div class="result__bottom-cards">
@@ -318,6 +322,7 @@
       </div>
     </section>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js@1/src/toastify.min.js"></script>
   <script src="./index.js"></script>
 </body>
